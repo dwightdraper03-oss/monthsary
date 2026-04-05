@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 11th Monthsary, Honnie </title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;1,400&family=Crimson+Text:ital,wght@1,400&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Playfair Display', serif;
+      overflow-x: hidden;
+      background: #1a0a00;
+    }
+
+    /*  BACKGROUND  */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          #0d0520 0%,
+          #1a0535 8%,
+          #3b0764 15%,
+          #6b1080 22%,
+          #c0315a 35%,
+          #e8623a 50%,
+          #f0934a 62%,
+          #f7c26b 72%,
+          #fde9a2 82%,
+          #f0934a 90%,
+          #e8623a 100%
+        );
+    }
+
+    /*  SUN  */
+    .sun {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fff7a1, #ffcc44, #ff8c00);
+      border-radius: 50%;
+      box-shadow:
+        0 0 60px 30px rgba(255, 200, 50, 0.7),
+        0 0 120px 60px rgba(255, 140, 20, 0.4),
+        0 0 200px 100px rgba(255, 100, 10, 0.2);
+      z-index: 2;
+      animation: sunPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes sunPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 60px 30px rgba(255, 200, 50, 0.7),
+          0 0 120px 60px rgba(255, 140, 20, 0.4),
+          0 0 200px 100px rgba(255, 100, 10, 0.2);
+      }
+      50% {
+        box-shadow:
+          0 0 80px 40px rgba(255, 220, 80, 0.9),
+          0 0 160px 80px rgba(255, 160, 40, 0.6),
+          0 0 260px 130px rgba(255, 120, 20, 0.3);
+      }
+    }
+
+    /* Sun rays */
+    .sun-rays {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      z-index: 1;
+      animation: rotateSlow 30s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotateSlow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .ray {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 250px;
+      height: 2px;
+      transform-origin: left center;
+      background: linear-gradient(to right, rgba(255, 220, 80, 0.5), transparent);
+    }
+
+    /* Pink overlay */
+    .pink-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(220, 50, 100, 0.06);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /*  BIRDS  */
+    .birds-orbit {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .orbit {
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+    }
+
+    .orbit-bird {
+      position: absolute;
+      animation: orbitFly linear infinite;
+      transform-origin: center center;
+    }
+
+    .orbit-bird svg {
+      width: 36px;
+      height: 20px;
+    }
+
+    .orbit-1 .orbit-bird:nth-child(1) { animation-duration: 12s; animation-delay: 0s;   --radius: 160px; }
+    .orbit-1 .orbit-bird:nth-child(2) { animation-duration: 12s; animation-delay: -4s;  --radius: 160px; }
+    .orbit-1 .orbit-bird:nth-child(3) { animation-duration: 12s; animation-delay: -8s;  --radius: 160px; }
+    .orbit-2 .orbit-bird:nth-child(1) { animation-duration: 18s; animation-delay: -2s;  --radius: 260px; }
+    .orbit-2 .orbit-bird:nth-child(2) { animation-duration: 18s; animation-delay: -8s;  --radius: 260px; }
+    .orbit-2 .orbit-bird:nth-child(3) { animation-duration: 18s; animation-delay: -14s; --radius: 260px; }
+    .orbit-3 .orbit-bird:nth-child(1) { animation-duration: 25s; animation-delay: -5s;  --radius: 370px; }
+    .orbit-3 .orbit-bird:nth-child(2) { animation-duration: 25s; animation-delay: -13s; --radius: 370px; }
+    .orbit-3 .orbit-bird:nth-child(3) { animation-duration: 25s; animation-delay: -20s; --radius: 370px; }
+
+    @keyframes orbitFly {
+      0%   { transform: rotate(0deg)   translateX(var(--radius)) rotate(0deg);    opacity: 0.6; }
+      25%  { opacity: 1; }
+      50%  { transform: rotate(180deg) translateX(var(--radius)) rotate(-180deg); opacity: 0.7; }
+      75%  { opacity: 1; }
+      100% { transform: rotate(360deg) translateX(var(--radius)) rotate(-360deg); opacity: 0.6; }
+    }
+
+    /*  SPARKLES  */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 5;
+      font-size: 1.2rem;
+      animation: sparkleAnim 2s ease-in-out infinite;
+    }
+
+    @keyframes sparkleAnim {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+
+    /*  MAIN CONTENT  */
+    .content {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 180px;
+    }
+
+    /*  HEADER  */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeDown 1.5s ease forwards;
+    }
+
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 7vw, 4.5rem);
+      color: #fff;
+      text-shadow:
+        0 0 20px rgba(255, 150, 200, 0.9),
+        0 0 40px rgba(255, 100, 160, 0.6),
+        2px 2px 8px rgba(0,0,0,0.8);
+      line-height: 1.3;
+      letter-spacing: 1px;
+    }
+
+    .header .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: rgba(255, 220, 240, 0.85);
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+      margin-top: 10px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .divider {
+      color: rgba(255, 200, 220, 0.8);
+      font-size: 1.4rem;
+      margin: 8px 0;
+      letter-spacing: 8px;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /*  ENVELOPE  */
+    .envelope-wrapper {
+      position: relative;
+      cursor: pointer;
+      animation: floatUp 3s ease-in-out infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .envelope {
+      width: 220px;
+      height: 160px;
+      position: relative;
+      filter: drop-shadow(0 10px 30px rgba(255, 100, 180, 0.7));
+      transition: transform 0.3s ease;
+    }
+
+    .envelope:hover { transform: scale(1.05); }
+
+    .env-body {
+      position: absolute;
+      bottom: 0;
+      width: 220px;
+      height: 130px;
+      background: linear-gradient(145deg, #fce4ec, #f8bbd0, #f48fb1);
+      border-radius: 4px 4px 10px 10px;
+      border: 2px solid rgba(233, 30, 99, 0.3);
+      box-shadow: inset 0 -2px 10px rgba(233,30,99,0.1);
+    }
+
+    .env-flap {
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-top: 75px solid #f06292;
+      transform-origin: top center;
+      transform: rotateX(30deg);
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      transition: transform 0.5s ease;
+    }
+
+    .env-left {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 0;
+      border-bottom: 65px solid #e91e8c22;
+      border-right: 110px solid transparent;
+    }
+
+    .env-right {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 0; height: 0;
+      border-bottom: 65px solid #e91e8c22;
+      border-left: 110px solid transparent;
+    }
+
+    .env-letter-peek {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 80px;
+      background: linear-gradient(135deg, #fff9f0, #fef3e2);
+      border-radius: 3px;
+      border: 1px solid rgba(200,150,100,0.3);
+      z-index: 1;
+    }
+
+    .click-me-text {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      text-shadow:
+        0 0 10px rgba(255,150,200,0.9),
+        1px 1px 3px rgba(0,0,0,0.6);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+      50%       { opacity: 0.7; transform: translateX(-50%) scale(1.05); }
+    }
+
+    /*  */
+    /*  BISAYA FOOTER — "Mura man tag gi ababa"  */
+    /*  */
+
+    .bisaya-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      pointer-events: none;
+
+      /* frosted-glass bar */
+      background: linear-gradient(
+        135deg,
+        rgba(30, 5, 20, 0.55),
+        rgba(80, 10, 40, 0.45)
+      );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 160, 200, 0.25);
+      box-shadow: 0 -4px 30px rgba(200, 50, 100, 0.25);
+
+      padding: 16px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* top decorative line of petals */
+    .bisaya-footer .petal-row {
+      display: flex;
+      gap: 6px;
+      font-size: 1rem;
+      opacity: 0.75;
+      animation: petalSway 3s ease-in-out infinite;
+    }
+
+    @keyframes petalSway {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-3px); }
+    }
+
+    /* the main sentence */
+    .bisaya-footer .sentence {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.3rem, 5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: center;
+      white-space: nowrap;
+
+      /* warm golden-pink gradient text */
+      background: linear-gradient(
+        90deg,
+        #ffd6e8 0%,
+        #ffb3d1 20%,
+        #ff85b0 40%,
+        #ffcc70 60%,
+        #ffd6e8 80%,
+        #ffb3d1 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      animation:
+        shimmer 4s linear infinite,
+        breathe 2.5s ease-in-out infinite;
+
+      text-shadow: none; /* can't use with gradient text */
+      filter: drop-shadow(0 0 8px rgba(255, 140, 180, 0.6));
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.03); }
+    }
+
+    /* small italic tagline below */
+    .bisaya-footer .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.7rem, 2.5vw, 0.88rem);
+      color: rgba(255, 210, 230, 0.65);
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    /* bottom petal row */
+    .bisaya-footer .petal-row-bottom {
+      display: flex;
+      gap: 6px;
+      font-size: 0.85rem;
+      opacity: 0.55;
+      animation: petalSway 3s ease-in-out infinite reverse;
+    }
+
+    /*  */
+
+    /*  PARTICLES  */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      font-size: 1.5rem;
+      animation: particleFly 2s ease-out forwards;
+    }
+
+    @keyframes particleFly {
+      0%   { opacity: 1; transform: translate(0,0) rotate(0deg) scale(1); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.3); }
+    }
+
+    /*  LETTER OVERLAY  */
+    .letter-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(0,0,0,0.75);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .letter-overlay.show { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .page-container {
+      position: relative;
+      width: 100%;
+      max-width: 620px;
+      max-height: 88vh;
+    }
+
+    /*  PARCHMENT  */
+    .parchment {
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #fdf6e3 0%, #faebd7 30%, #f5deb3 60%, #fdf0d5 100%);
+      border-radius: 4px;
+      padding: 40px 35px 70px;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(180,130,70,0.4),
+        0 0 0 3px rgba(200,160,100,0.2),
+        0 20px 60px rgba(0,0,0,0.6),
+        inset 0 0 60px rgba(180,130,50,0.1);
+      border: 2px solid rgba(180,130,70,0.5);
+      animation: unfurl 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      transform-origin: top center;
+    }
+
+    @keyframes unfurl {
+      from { transform: scaleY(0.1) scaleX(0.8); opacity: 0; }
+      to   { transform: scaleY(1) scaleX(1); opacity: 1; }
+    }
+
+    .parchment::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        transparent, transparent 27px,
+        rgba(180,130,70,0.08) 28px
+      );
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .parchment::after {
+      content: '';
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 1.8rem;
+      opacity: 0.5;
+    }
+
+    .corner-rose {
+      position: absolute;
+      top: 10px; left: 15px;
+      font-size: 1.8rem;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .parchment-title {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      color: #8b4513;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(139,69,19,0.3);
+    }
+
+    .parchment-divider {
+      text-align: center;
+      color: rgba(139,69,19,0.5);
+      font-size: 1rem;
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+    }
+
+    .letter-body {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      color: #4a2c0a;
+      line-height: 1.9;
+      text-align: justify;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letter-body .salutation {
+      font-size: 1.2em;
+      font-weight: bold;
+      font-style: normal;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .letter-body .indent {
+      text-indent: 2.5em;
+      display: block;
+    }
+
+    .letter-body .closing {
+      margin-top: 30px;
+      font-style: normal;
+    }
+
+    .letter-body .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      color: #8b1a4a;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /*  PHOTO PAGE  */
+    .photo-page {
+      display: none;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #fdf6e3 0%, #faebd7 30%, #f5deb3 60%, #fdf0d5 100%);
+      border-radius: 4px;
+      padding: 40px 30px 70px;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(180,130,70,0.4),
+        0 0 0 3px rgba(200,160,100,0.2),
+        0 20px 60px rgba(0,0,0,0.6),
+        inset 0 0 60px rgba(180,130,50,0.1);
+      border: 2px solid rgba(180,130,70,0.5);
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .photo-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        transparent, transparent 27px,
+        rgba(180,130,70,0.08) 28px
+      );
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .photo-page.show { display: flex; }
+
+    .photo-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.3rem, 5vw, 1.9rem);
+      color: #8b1a4a;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(139,69,19,0.7);
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-frame {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 0 1px rgba(180,130,70,0.3);
+      transform: rotate(-1.5deg);
+      animation: photoAppear 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      max-width: 100%;
+    }
+
+    @keyframes photoAppear {
+      from { transform: rotate(-1.5deg) scale(0) translateY(50px); opacity: 0; }
+      to   { transform: rotate(-1.5deg) scale(1) translateY(0); opacity: 1; }
+    }
+
+    .photo-frame img {
+      display: block;
+      max-width: 100%;
+      max-height: 45vh;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.95rem;
+      color: #5a3a1a;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .photo-message {
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #4a2c0a;
+      margin-top: 20px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    /*  NAV BUTTONS  */
+    .nav-btn {
+      position: absolute;
+      bottom: 15px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(139,69,19,0.5);
+      background: rgba(253,240,213,0.9);
+      color: #8b4513;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-btn:hover {
+      background: #f5deb3;
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .btn-next { right: 15px; }
+    .btn-prev { left: 15px; }
+
+    /*  CLOSE BUTTON  */
+    .close-btn {
+      position: fixed;
+      top: 15px; right: 15px;
+      z-index: 600;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+      transition: background 0.3s;
+    }
+
+    .close-btn.show { display: flex; }
+    .close-btn:hover { background: rgba(255,100,150,0.4); }
+
+    /* scrollbars */
+    .parchment::-webkit-scrollbar,
+    .photo-page::-webkit-scrollbar { width: 6px; }
+    .parchment::-webkit-scrollbar-track,
+    .photo-page::-webkit-scrollbar-track { background: rgba(180,130,70,0.1); }
+    .parchment::-webkit-scrollbar-thumb,
+    .photo-page::-webkit-scrollbar-thumb { background: rgba(139,69,19,0.4); border-radius: 3px; }
+
+    @media (max-width: 480px) {
+      .parchment { padding: 30px 20px 60px; }
+      .letter-body { font-size: 1rem; }
+      .sun { width: 90px; height: 90px; }
+      .bisaya-footer .sentence { white-space: normal; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="pink-overlay"></div>
+
+  <!-- Sun rays -->
+  <div class="sun-rays" id="sunRays"></div>
+
+  <!-- Sun -->
+  <div class="sun"></div>
+
+  <!-- Birds orbiting the sun -->
+  <div class="birds-orbit">
+
+    <div class="orbit orbit-1">
+      <div class="orbit-bird">
+        <svg viewBox="0 0 44 22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,11 Q11,2 22,11 Q33,2 42,11" stroke="#1a0a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 44 22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,11 Q11,2 22,11 Q33,2 42,11" stroke="#1a0a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 44 22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,11 Q11,2 22,11 Q33,2 42,11" stroke="#1a0a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="orbit orbit-2">
+      <div class="orbit-bird">
+        <svg viewBox="0 0 36 18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,9 Q9,2 18,9 Q27,2 34,9" stroke="#1a0a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 36 18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,9 Q9,2 18,9 Q27,2 34,9" stroke="#1a0a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 36 18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,9 Q9,2 18,9 Q27,2 34,9" stroke="#1a0a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="orbit orbit-3">
+      <div class="orbit-bird">
+        <svg viewBox="0 0 30 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,8 Q8,2 15,8 Q22,2 28,8" stroke="#1a0a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 30 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,8 Q8,2 15,8 Q22,2 28,8" stroke="#1a0a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="orbit-bird">
+        <svg viewBox="0 0 30 15" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2,8 Q8,2 15,8 Q22,2 28,8" stroke="#1a0a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sparkles -->
+  <div class="sparkle" style="top:10%;left:5%;animation-delay:0s;"></div>
+  <div class="sparkle" style="top:15%;right:8%;animation-delay:0.7s;"></div>
+  <div class="sparkle" style="top:5%;left:40%;animation-delay:1.4s;"></div>
+  <div class="sparkle" style="top:20%;right:20%;animation-delay:0.3s;"></div>
+  <div class="sparkle" style="top:8%;left:70%;animation-delay:1s;"></div>
+  <div class="sparkle" style="top:80%;left:10%;animation-delay:0.5s;"></div>
+  <div class="sparkle" style="top:75%;right:12%;animation-delay:1.2s;"></div>
+
+  <!--  MAIN CONTENT  -->
+  <div class="content">
+
+    <div class="header">
+      <h1>Happy 11th Monthsary,<br/>Honnie.</h1>
+      <div class="divider">  </div>
+      <p class="subtitle">I love you, more than words could ever say.</p>
+    </div>
+
+    <div class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope(event)">
+      <div class="envelope" id="envelope">
+        <div class="env-letter-peek"></div>
+        <div class="env-body"></div>
+        <div class="env-left"></div>
+        <div class="env-right"></div>
+        <div class="env-flap" id="envFlap"></div>
+      </div>
+      <span class="click-me-text"> Click Me </span>
+    </div>
+
+  </div>
+
+  <!--  -->
+  <!--  BISAYA FOOTER  -->
+  <!--  -->
+  <div class="bisaya-footer">
+    <div class="petal-row">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="sentence">Mura man tag gi ababa </div>
+
+    <div class="tagline">— your favorite sentence, always </div>
+
+    <div class="petal-row-bottom">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!--  LETTER OVERLAY  -->
+  <div class="letter-overlay" id="letterOverlay">
+    <div class="page-container" id="pageContainer">
+
+      <!-- PAGE 1: Letter -->
+      <div class="parchment" id="page1">
+        <span class="corner-rose"></span>
+        <div class="parchment-title">A Letter For You, Honnie </div>
+        <div class="parchment-divider">~  ~</div>
+
+        <div class="letter-body">
+          <span class="salutation">Dear Honnie,</span>
+
+          <span class="indent">The past month has been rough for both of us with your work, acads, life, and even our relationship weighing on you. I know I added to that burden, and I'm truly sorry. I said things that were hurtful and insensitive, and there's no excuse for that. But I want you to know that I am trying, genuinely, to grow and be better for us. Last month made me realize a lot, and I'm holding on to those lessons because love kaayo tika, sobra. I also know we haven't been able to communicate properly these past few days because of everything going on. Still, despite all of those problems, my love for you hasn't diminished. It never did, and it never will.</span>
+
+          <br/><br/>
+
+          <span class="indent">You've asked me many times why I'm still here. And my answer will always remain the same: I love you more than I can ever fully explain. What we have isn't perfect. It has caused us pain — but I believe that pain doesn't mean something is wrong. Sometimes, it just means we're learning, growing, and realizing that there's no such thing as permanent rainbows and butterflies in a relationship. We have much more to learn, to improve, and to acknowledge. But I know, that with you, we can accomplish a lot of things.</span>
+
+          <br/><br/>
+
+          <span class="indent">I will stay by your side, Honnie. Always. No matter what happens. I will wait patiently for the day to come where you can fully open your heart sa akoa and show me your side na wala pajud nimo napakita sa lain. Naa rako permi, Honnie, permi. I love you baby, I love you so much.</span>
+
+          <div class="closing">
+            With all my love, always,<br/>
+            <span class="signature">Your Person </span>
+          </div>
+        </div>
+
+        <button class="nav-btn btn-next" onclick="goToPage2()" title="Next"></button>
+      </div>
+
+      <!-- PAGE 2: Photo -->
+      <div class="photo-page" id="page2">
+        <span class="corner-rose"></span>
+        <div class="photo-title">Us </div>
+        <div class="photo-subtitle">Every moment with you is one I treasure.</div>
+
+        <div class="photo-frame">
+          <img src="photo.jpg" alt="Us together " />
+          <div class="photo-caption">My favorite person </div>
+        </div>
+
+        <div class="photo-message">
+          "Whatever happens, wherever life takes us —<br/>
+          it will always be you, Honnie.<br/>
+          Always. "
+        </div>
+
+        <button class="nav-btn btn-prev" onclick="goToPage1()" title="Back"></button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Close button -->
+  <button class="close-btn" id="closeBtn" onclick="closeOverlay()"></button>
+
+  <!-- Audio -->
+  <audio id="bgMusic" loop>
+    <source src="araw-araw.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let envelopeOpened = false;
+
+    /*  BUILD SUN RAYS  */
+    const raysContainer = document.getElementById('sunRays');
+    for (let i = 0; i < 24; i++) {
+      const ray = document.createElement('div');
+      ray.classList.add('ray');
+      ray.style.transform = `rotate(${i * 15}deg)`;
+      raysContainer.appendChild(ray);
+    }
+
+    /*  OPEN ENVELOPE  */
+    function openEnvelope(e) {
+      if (envelopeOpened) return;
+      envelopeOpened = true;
+
+      const wrapper = document.getElementById('envelopeWrapper');
+      const flap    = document.getElementById('envFlap');
+
+      flap.style.transition = 'transform 0.5s ease';
+      flap.style.transform  = 'rotateX(-150deg)';
+
+      const rect = wrapper.getBoundingClientRect();
+      launchParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+      wrapper.style.animation = 'none';
+      wrapper.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        wrapper.style.transition = 'transform 0.3s ease, opacity 0.5s ease';
+        wrapper.style.transform  = 'scale(0)';
+        wrapper.style.opacity    = '0';
+      }, 400);
+
+      const music = document.getElementById('bgMusic');
+      music.volume = 0.5;
+      music.currentTime = 106;
+      music.play().catch(() => {
+        document.addEventListener('click', () => music.play(), { once: true });
+      });
+
+      setTimeout(() => {
+        document.getElementById('letterOverlay').classList.add('show');
+        document.getElementById('closeBtn').classList.add('show');
+      }, 900);
+    }
+
+    /*  PARTICLES  */
+    function launchParticles(cx, cy) {
+      const emojis = ['','','','','','','','','','','',''];
+      for (let i = 0; i < 45; i++) {
+        setTimeout(() => {
+          const p = document.createElement('div');
+          p.classList.add('particle');
+          p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+          const angle = Math.random() * 360;
+          const dist  = 80 + Math.random() * 200;
+          const tx    = Math.cos(angle * Math.PI / 180) * dist;
+          const ty    = Math.sin(angle * Math.PI / 180) * dist - 100;
+          const rot   = (Math.random() - 0.5) * 720;
+
+          p.style.cssText = `
+            left: ${cx}px; top: ${cy}px;
+            --tx: ${tx}px; --ty: ${ty}px;
+            --rot: ${rot}deg;
+            font-size: ${0.8 + Math.random() * 1.2}rem;
+          `;
+          document.body.appendChild(p);
+          setTimeout(() => p.remove(), 2100);
+        }, i * 30);
+      }
+    }
+
+    /*  PAGE TRANSITIONS  */
+    function goToPage2() {
+      const p1 = document.getElementById('page1');
+      const p2 = document.getElementById('page2');
+
+      p1.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      p1.style.opacity    = '0';
+      p1.style.transform  = 'translateX(-40px)';
+
+      setTimeout(() => {
+        p1.style.display = 'none';
+        p2.classList.add('show');
+        p2.style.opacity   = '0';
+        p2.style.transform = 'translateX(40px)';
+        p2.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          p2.style.opacity   = '1';
+          p2.style.transform = 'translateX(0)';
+        }));
+
+        launchParticles(window.innerWidth / 2, window.innerHeight / 2);
+      }, 400);
+    }
+
+    function goToPage1() {
+      const p1 = document.getElementById('page1');
+      const p2 = document.getElementById('page2');
+
+      p2.style.transition  = 'opacity 0.4s ease, transform 0.4s ease';
+      p2.style.opacity     = '0';
+      p2.style.transform   = 'translateX(40px)';
+
+      setTimeout(() => {
+        p2.classList.remove('show');
+        p1.style.display   = 'block';
+        p1.style.opacity   = '0';
+        p1.style.transform = 'translateX(-40px)';
+        p1.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          p1.style.opacity   = '1';
+          p1.style.transform = 'translateX(0)';
+        }));
+      }, 400);
+    }
+
+    /*  CLOSE  */
+    function closeOverlay() {
+      document.getElementById('letterOverlay').classList.remove('show');
+      document.getElementById('closeBtn').classList.remove('show');
+    }
+
+    document.getElementById('letterOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeOverlay();
+    });
+  </script>
+
+</body>
+</html>
